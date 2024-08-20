@@ -56,7 +56,7 @@ function build_source_package() {
 }
 
 function build_binary_package() {
-	sbuild -A -d "$TARGET_RELEASE_$TARGET_ARCHITECTURE" "../build-area/$PROJECT_NAME_$(git describe --tag upstream)-0ubuntu1.dsc"
+	sbuild -A -d "$TARGET_RELEASE"_"$TARGET_ARCHITECTURE" "../build-area/$PROJECT_NAME_$(git describe --tag upstream)-0ubuntu1.dsc"
 }
 
 @test "Add the Ubuntu Cloud Archive repo" {

@@ -62,14 +62,18 @@ function build_binary_package() {
 
 @test "Add the Ubuntu Cloud Archive repo" {
 	run add_uca_repo
+	assert_output --partial "Reading package lists... Done"
 }
 
 @test "Install dependencies" {
 	run install_dependencies
+	assert_output --regexp "[0-9]* upgraded, [0-9]* newly installed, [0-9]* to remove and [0-9]* not upgraded."
 }
 
 @test "Setup sbuild" {
 	run setup_sbuild
+
+	refute_output 'You must be a member of the 'sbuild' group.'
 }
 
 @test "Add SSH key" {

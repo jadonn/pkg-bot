@@ -17,7 +17,8 @@ function install_dependencies() {
 		sphinx-common \
 		python3-pbr \
 		debhelper \
-		sendmail
+		sendmail\
+		-y
 }
 
 function setup_sbuild() {
